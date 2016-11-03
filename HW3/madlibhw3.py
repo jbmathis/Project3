@@ -11,8 +11,31 @@
 # 1) Print the new text
 import nltk
 import random
+from nltk.book import text2
 
-print("START*******")
+print("START*******\n\n")
+text2 = text2[0:151]
+string = ""
+for token in text2:
+	string += ' ' + token
+print('Original Text\n--------------')
+print(string)
+tokens = nltk.word_tokenize(string)
+tagged_tokens = nltk.pos_tag(tokens)
+tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective", "IN":"a preposition"}
+substitution_probabilities = {"NN":.15,"NNS":.1,"VB":.1,"JJ":.1,"IN":.1}
 
+changed_text = []
+final_text = ""
+for (word, tag) in tagged_tokens:
+	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
+		changed_text.append(word)
+	else:
+		new_word = input("Please enter %s:\n" % (tagmap[tag]))
+		changed_text.append(new_word)
+for token in changed_text:
+	final_text += ' ' + token
+print('\nChanged Text\n---------------')
+print(final_text)
 
-print("\n\nEND*******")
+print("END*******")
