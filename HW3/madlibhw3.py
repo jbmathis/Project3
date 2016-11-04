@@ -22,8 +22,8 @@ print('Original Text\n--------------')
 print(string)
 tokens = nltk.word_tokenize(string)
 tagged_tokens = nltk.pos_tag(tokens)
-tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective", "IN":"a preposition"}
-substitution_probabilities = {"NN":.15,"NNS":.1,"VB":.1,"JJ":.1,"IN":.1}
+tagmap = {"NN":"a noun","NNS":"a plural noun","VBD":"a past-tense verb","JJ":"an adjective", "IN":"a preposition"}
+substitution_probabilities = {"NN":.15,"NNS":.1,"VBD":.1,"JJ":.1,"IN":.1}
 
 changed_text = []
 final_text = ""
