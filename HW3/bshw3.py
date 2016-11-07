@@ -10,18 +10,19 @@
 
 # Deliverables
 # Make sure the new page is uploaded to your GitHub account.
+
 import requests
 from bs4 import BeautifulSoup
-
+#use beautifulsoup to connect to the umsi website
 base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
 soup = BeautifulSoup(r.text, "html.parser")
-
+#convert the html file for the website to one large string
 html_str = soup.prettify(formatter=None)
-
+#replace student with AMAZING student, change main photo, and add UMSI logos
 html_str = html_str.replace('student', 'AMAZING student')
 html_str = html_str.replace('https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg', 'media/IMG_6197.JPG')
 html_str = html_str.replace('logo2.png', 'media/logo.png')
-
+#open index.html and write the changed string to the file
 fout = open('index.html','w')
 fout.write(html_str)
