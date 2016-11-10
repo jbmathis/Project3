@@ -11,3 +11,4 @@
 print("Average subjectivity is")
 print("Average polarity is")
  #I'm starting this part of the project
+ #I'm still thinking about the project
